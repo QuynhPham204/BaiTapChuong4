@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.2 on win32)" generated="2025-04-26T17:04:24.340541" rpa="false" schemaversion="5">
+<suite id="s1" name="Login" source="D:\nam22_Quynh\TuDongHoaQuyTrinh\BtLop\RobotFramework\Orange\login.robot">
+<test id="s1-t1" name="Login Valid" line="12">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-26T17:04:24.958410" level="INFO">Opening browser 'Chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<arg>${URL}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-26T17:04:24.957910" elapsed="7.403854"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-04-26T17:04:32.362361" elapsed="0.025930"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//input[@name="username"]</arg>
+<arg>timeout=5</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-26T17:04:32.388730" elapsed="0.528266"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-26T17:04:32.917919" level="INFO">Typing text 'Admin' into text field 'xpath=//input[@name="username"]'.</msg>
+<arg>xpath=//input[@name="username"]</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-26T17:04:32.917527" elapsed="0.100303"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-26T17:04:33.018718" level="INFO">Typing text 'admin123' into text field 'xpath=//input[@name="password"]'.</msg>
+<arg>xpath=//input[@name="password"]</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-26T17:04:33.018419" elapsed="0.083131"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath=//button[@type="submit"]</arg>
+<arg>timeout=5</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-04-26T17:04:33.101964" elapsed="0.024120"/>
+</kw>
+<try>
+<branch type="TRY">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-26T17:04:33.127086" level="INFO">Clicking element 'xpath=//button[@type="submit"]'.</msg>
+<arg>xpath=//button[@type="submit"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-26T17:04:33.126749" elapsed="0.050037"/>
+</kw>
+<status status="PASS" start="2025-04-26T17:04:33.126557" elapsed="0.050426"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Không tìm thấy button login</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-04-26T17:04:33.177430" elapsed="0.000148"/>
+</kw>
+<status status="NOT RUN" start="2025-04-26T17:04:33.177171" elapsed="0.000523"/>
+</branch>
+<status status="PASS" start="2025-04-26T17:04:33.126486" elapsed="0.051281"/>
+</try>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//p[@class="oxd-userdropdown-name"]</arg>
+<arg>timeout=5</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-26T17:04:33.178150" elapsed="1.777578"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-04-26T17:04:34.980238" level="INFO">${user_name} = manda user</msg>
+<var>${user_name}</var>
+<arg>xpath=//p[@class="oxd-userdropdown-name"]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-26T17:04:34.956185" elapsed="0.024101"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2025-04-26T17:04:34.997912" level="INFO">Current page contains text 'manda user'.</msg>
+<arg>${user_name}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2025-04-26T17:04:34.980940" elapsed="0.017060"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Login thành công với user: ${user_name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-04-26T17:04:34.998282" elapsed="0.000446"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-26T17:04:34.999054" elapsed="2.150172"/>
+</kw>
+<doc>Đăng nhập đúng username và password</doc>
+<status status="PASS" start="2025-04-26T17:04:24.956433" elapsed="12.193461"/>
+</test>
+<test id="s1-t2" name="Login Invalid - Sai cả username và password" line="31">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-26T17:04:37.156165" level="INFO">Opening browser 'Chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<arg>${URL}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-26T17:04:37.155686" elapsed="5.846054"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-04-26T17:04:43.002337" elapsed="0.033126"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//input[@name="username"]</arg>
+<arg>timeout=5</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-26T17:04:43.035949" elapsed="0.457090"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-26T17:04:43.493824" level="INFO">Typing text 'Admi' into text field 'xpath=//input[@name="username"]'.</msg>
+<arg>xpath=//input[@name="username"]</arg>
+<arg>${INVALID_USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-26T17:04:43.493494" elapsed="0.091634"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-26T17:04:43.585744" level="INFO">Typing text 'admin12' into text field 'xpath=//input[@name="password"]'.</msg>
+<arg>xpath=//input[@name="password"]</arg>
+<arg>${INVALID_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-26T17:04:43.585517" elapsed="0.063750"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath=//button[@type="submit"]</arg>
+<arg>timeout=5</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-04-26T17:04:43.649580" elapsed="0.019934"/>
+</kw>
+<try>
+<branch type="TRY">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-26T17:04:43.670110" level="INFO">Clicking element 'xpath=//button[@type="submit"]'.</msg>
+<arg>xpath=//button[@type="submit"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-26T17:04:43.669939" elapsed="0.056316"/>
+</kw>
+<status status="PASS" start="2025-04-26T17:04:43.669824" elapsed="0.056525"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Không tìm thấy button login</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-04-26T17:04:43.726557" elapsed="0.000030"/>
+</kw>
+<status status="NOT RUN" start="2025-04-26T17:04:43.726415" elapsed="0.000210"/>
+</branch>
+<status status="PASS" start="2025-04-26T17:04:43.669768" elapsed="0.056896"/>
+</try>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2025-04-26T17:04:44.908852" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-26T17:04:44.909020" level="FAIL">Page should have contained text 'Invalid credentials' but did not.</msg>
+<arg>Invalid credentials</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="FAIL" start="2025-04-26T17:04:43.727011" elapsed="1.228315">Page should have contained text 'Invalid credentials' but did not.</status>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Login không thành công</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-04-26T17:04:44.955978" elapsed="0.000046"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-04-26T17:04:44.956750" elapsed="0.000035"/>
+</kw>
+<doc>Đăng nhập sai username và password</doc>
+<status status="FAIL" start="2025-04-26T17:04:37.150944" elapsed="7.806235">Page should have contained text 'Invalid credentials' but did not.</status>
+</test>
+<test id="s1-t3" name="Login Invalid - Sai username, đúng password" line="48">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-26T17:04:44.959089" level="INFO">Opening browser 'Chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<arg>${URL}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-26T17:04:44.958905" elapsed="5.124033"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-04-26T17:04:50.083275" elapsed="0.034055"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//input[@name="username"]</arg>
+<arg>timeout=5</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-26T17:04:50.117963" elapsed="0.440039"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-26T17:04:50.558634" level="INFO">Typing text 'Admi' into text field 'xpath=//input[@name="username"]'.</msg>
+<arg>xpath=//input[@name="username"]</arg>
+<arg>${INVALID_USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-26T17:04:50.558335" elapsed="0.064373"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-26T17:04:50.623344" level="INFO">Typing text 'admin123' into text field 'xpath=//input[@name="password"]'.</msg>
+<arg>xpath=//input[@name="password"]</arg>
+<arg>${PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-26T17:04:50.623058" elapsed="0.069118"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath=//button[@type="submit"]</arg>
+<arg>timeout=5</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-04-26T17:04:50.692536" elapsed="0.020067"/>
+</kw>
+<try>
+<branch type="TRY">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-26T17:04:50.713301" level="INFO">Clicking element 'xpath=//button[@type="submit"]'.</msg>
+<arg>xpath=//button[@type="submit"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-26T17:04:50.713076" elapsed="0.046862"/>
+</kw>
+<status status="PASS" start="2025-04-26T17:04:50.712926" elapsed="0.047097"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Không tìm thấy button login</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-04-26T17:04:50.760267" elapsed="0.000050"/>
+</kw>
+<status status="NOT RUN" start="2025-04-26T17:04:50.760089" elapsed="0.000284"/>
+</branch>
+<status status="PASS" start="2025-04-26T17:04:50.712873" elapsed="0.047557"/>
+</try>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2025-04-26T17:04:51.891888" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-26T17:04:51.892083" level="FAIL">Page should have contained text 'Invalid credentials' but did not.</msg>
+<arg>Invalid credentials</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="FAIL" start="2025-04-26T17:04:50.760865" elapsed="1.132539">Page should have contained text 'Invalid credentials' but did not.</status>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Login không thành công</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-04-26T17:04:51.894494" elapsed="0.000190"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-04-26T17:04:51.895161" elapsed="0.000054"/>
+</kw>
+<doc>Đăng nhập sai username nhưng đúng password</doc>
+<status status="FAIL" start="2025-04-26T17:04:44.958383" elapsed="6.937170">Page should have contained text 'Invalid credentials' but did not.</status>
+</test>
+<test id="s1-t4" name="Login Invalid - Đúng username, sai password" line="65">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-26T17:04:51.897413" level="INFO">Opening browser 'Chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<arg>${URL}</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-26T17:04:51.896936" elapsed="4.288127"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-04-26T17:04:56.185840" elapsed="0.033675"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath=//input[@name="username"]</arg>
+<arg>timeout=5</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-26T17:04:56.220082" elapsed="0.466355"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-26T17:04:56.687374" level="INFO">Typing text 'Admin' into text field 'xpath=//input[@name="username"]'.</msg>
+<arg>xpath=//input[@name="username"]</arg>
+<arg>${USERNAME}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-26T17:04:56.687028" elapsed="0.112080"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-26T17:04:56.799587" level="INFO">Typing text 'admin12' into text field 'xpath=//input[@name="password"]'.</msg>
+<arg>xpath=//input[@name="password"]</arg>
+<arg>${INVALID_PASSWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-26T17:04:56.799356" elapsed="0.087199"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>xpath=//button[@type="submit"]</arg>
+<arg>timeout=5</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2025-04-26T17:04:56.887152" elapsed="0.028953"/>
+</kw>
+<try>
+<branch type="TRY">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-04-26T17:04:56.916854" level="INFO">Clicking element 'xpath=//button[@type="submit"]'.</msg>
+<arg>xpath=//button[@type="submit"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-26T17:04:56.916606" elapsed="0.060902"/>
+</kw>
+<status status="PASS" start="2025-04-26T17:04:56.916434" elapsed="0.061360"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Không tìm thấy button login</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-04-26T17:04:56.978135" elapsed="0.000064"/>
+</kw>
+<status status="NOT RUN" start="2025-04-26T17:04:56.977959" elapsed="0.000329"/>
+</branch>
+<status status="PASS" start="2025-04-26T17:04:56.916372" elapsed="0.061974"/>
+</try>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2025-04-26T17:04:58.404513" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-26T17:04:58.404773" level="FAIL">Page should have contained text 'Invalid credentials' but did not.</msg>
+<arg>Invalid credentials</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="FAIL" start="2025-04-26T17:04:56.978635" elapsed="1.426920">Page should have contained text 'Invalid credentials' but did not.</status>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Login không thành công</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2025-04-26T17:04:58.406113" elapsed="0.000082"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2025-04-26T17:04:58.407304" elapsed="0.000083"/>
+</kw>
+<doc>Đăng nhập đúng username nhưng sai password</doc>
+<status status="FAIL" start="2025-04-26T17:04:51.896183" elapsed="6.511818">Page should have contained text 'Invalid credentials' but did not.</status>
+</test>
+<status status="FAIL" start="2025-04-26T17:04:24.341874" elapsed="34.068025"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="3" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Login" id="s1" pass="1" fail="3" skip="0">Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
