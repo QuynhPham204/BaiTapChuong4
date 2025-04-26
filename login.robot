@@ -6,7 +6,7 @@ ${URL}                 https://opensource-demo.orangehrmlive.com/web/index.php/a
 ${USERNAME}            Admin
 ${PASSWORD}            admin123
 ${INVALID_USERNAME}    Admi
-${INVALID_PASSWORD}    admin12
+${INVALID_PASSWORD}    admin123456
 
 *** Test Cases ***
 Login Valid
